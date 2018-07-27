@@ -14,16 +14,21 @@ int main(){
 	cout << "choose number of points" << endl;
 	cin >> N;
 
-	ofstream fout;
-	fout.open("points");
+	ofstream fout, fout2;
 
+			fout.open("points");
+			fout2.open("output");
+	double y, z;
+	int c = 0;
 	for (int i = 1; i <= N; i++){
-		double x = ((double) rand() / (RAND_MAX));
-		double y = ((double) rand() / (RAND_MAX));
-		if(x*x + y*y <= 1){
-			fout << x << " " << y << endl;
+		 y = ((double) rand() / (RAND_MAX));
+		 z = ((double) rand() / (RAND_MAX));
+		if(y*y + z*z <= 1){ 
+			c++;
+			fout << y << " " << z << endl;
+			double pi = double(c)*4/double(i);
+			fout2 << y << " " << z <<  " " << pi << endl;
 		}
-
 	}
 	return 0;
 }
